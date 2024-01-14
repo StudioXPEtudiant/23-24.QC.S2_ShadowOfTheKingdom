@@ -4,7 +4,7 @@ using System.Collections;
 public class HeroKnight : MonoBehaviour {
 
     [SerializeField] float      m_speed = 4.0f;
-    [SerializeField] float      m_jumpForce = 7.5f;
+    [SerializeField] float      m_jumpForce = 15f;
     [SerializeField] float      m_rollForce = 6.0f;
     [SerializeField] bool       m_noBlood = false;
     [SerializeField] GameObject m_slideDust;
@@ -152,8 +152,10 @@ public class HeroKnight : MonoBehaviour {
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-            m_groundSensor.Disable(0.2f);
+            m_groundSensor.Disable(0.4f);
         }
+
+        
 
         //Run
         else if (Mathf.Abs(inputX) > Mathf.Epsilon)
